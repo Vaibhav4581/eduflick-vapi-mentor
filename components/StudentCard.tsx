@@ -21,7 +21,7 @@ export default function StudentCard({
   totalLessons,
 }: StudentCardProps) {
   return (
-    <div style={styles.card}>
+    <div className="student-card">
       {/* Header */}
       <div style={styles.header}>
         <div style={styles.avatar}>
@@ -65,17 +65,6 @@ export default function StudentCard({
 }
 
 const styles: Record<string, React.CSSProperties> = {
-  card: {
-    background: "var(--surface)",
-    border: "1px solid var(--border)",
-    borderRadius: "var(--radius)",
-    padding: "20px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "16px",
-    width: "100%",
-    maxWidth: 320,
-  },
   header: {
     display: "flex",
     alignItems: "center",

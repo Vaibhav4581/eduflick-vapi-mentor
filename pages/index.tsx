@@ -53,9 +53,9 @@ export default function Home() {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
       </Head>
 
-      <div style={styles.page}>
+      <div className="layout-page">
         {/* ── Top nav ───────────────────────────────────────────────────── */}
-        <nav style={styles.nav}>
+        <nav className="layout-nav">
           <div style={styles.navLogo}>
             <span style={styles.logoMark}>E</span>
             <span style={styles.logoText}>EduFlick</span>
@@ -69,9 +69,9 @@ export default function Home() {
         </nav>
 
         {/* ── Main content ──────────────────────────────────────────────── */}
-        <main style={styles.main}>
+        <main className="layout-main">
           {/* Left column — student info */}
-          <aside style={styles.sidebar}>
+          <aside className="layout-sidebar">
             <StudentCard {...MOCK_STUDENT} />
 
             {/* Session stats */}
@@ -106,7 +106,7 @@ export default function Home() {
           </aside>
 
           {/* Right column — voice mentor */}
-          <section style={styles.mentorSection}>
+          <section className="layout-mentor-section">
             <div style={styles.mentorHeader}>
               <h1 style={styles.mentorTitle}>AI Mentor</h1>
               <div style={styles.roleTagRow}>
@@ -123,7 +123,7 @@ export default function Home() {
             </div>
 
             {/* Voice card */}
-            <div style={styles.voiceCard}>
+            <div className="layout-voice-card">
               <MicrophoneButton
                 student={MOCK_STUDENT}
                 onCallStart={() => {
@@ -152,24 +152,6 @@ export default function Home() {
 // ─── Styles ───────────────────────────────────────────────────────────────────
 
 const styles: Record<string, React.CSSProperties> = {
-  page: {
-    minHeight: "100vh",
-    background: "var(--bg)",
-    display: "flex",
-    flexDirection: "column",
-  },
-  nav: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "0 32px",
-    height: 64,
-    borderBottom: "1px solid var(--border)",
-    background: "var(--surface)",
-    position: "sticky",
-    top: 0,
-    zIndex: 10,
-  },
   navLogo: {
     display: "flex",
     alignItems: "center",
@@ -218,22 +200,6 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: "14px",
     fontWeight: 700,
     color: "#fff",
-  },
-  main: {
-    display: "flex",
-    gap: "32px",
-    padding: "40px 32px",
-    maxWidth: 1100,
-    margin: "0 auto",
-    width: "100%",
-    flex: 1,
-  },
-  sidebar: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "16px",
-    width: 320,
-    flexShrink: 0,
   },
   statsCard: {
     background: "var(--surface)",
@@ -289,14 +255,6 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: "13px",
     lineHeight: 1.6,
   },
-  mentorSection: {
-    flex: 1,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "32px",
-    paddingTop: "20px",
-  },
   mentorHeader: {
     textAlign: "center",
   },
@@ -336,18 +294,6 @@ const styles: Record<string, React.CSSProperties> = {
   mentorSubtitle: {
     fontSize: "15px",
     color: "var(--text-secondary)",
-  },
-  voiceCard: {
-    background: "var(--surface)",
-    border: "1px solid var(--border)",
-    borderRadius: "var(--radius)",
-    padding: "48px 40px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    maxWidth: 560,
-    boxShadow: "0 4px 40px rgba(0,0,0,0.3)",
   },
   techBadge: {
     display: "flex",
