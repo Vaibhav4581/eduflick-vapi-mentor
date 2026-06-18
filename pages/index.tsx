@@ -31,20 +31,17 @@ export default function Home() {
 
   // Pulse animation keyframes injected into DOM
   useEffect(() => {
-    const style = document.createElement("style");
-    style.textContent = `
-      @keyframes pulse {
-        0% { transform: scale(1); opacity: 0.8; }
-        100% { transform: scale(1.8); opacity: 0; }
-      }
-      @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-    `;
-    document.head.appendChild(style);
-    return () => document.head.removeChild(style);
-  }, []);
+  const style = document.createElement("style");
+  style.textContent = `
+    @keyframes pulse {
+      ...your existing keyframes...
+    }
+  `;
+  document.head.appendChild(style); // ✅ don't return this
+  return () => {                     // ✅ return a cleanup function instead
+    document.head.removeChild(style);
+  };
+}, []);
 
   return (
     <>
